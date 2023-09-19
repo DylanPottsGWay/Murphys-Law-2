@@ -30,4 +30,29 @@ void moveArm(int speed){
 
 void armOP(){
     bool armUpButton = controller.get_digital(DIGITAL_L1);
+    bool armDownButton = controller.get_digital(DIGITAL_L2);
+    if (armUpButton)
+    moveArm(127);
+} else if(armDownButton){
+    moveArm(-127);
+} else {
+    moveArm(0);
+}
+
+//Claw
+void moveClaw(int speed){
+    moveClaw(speed);
+}
+
+void clawOP(){
+    bool clawOpenButton = controller.get_digital(DIGITAL_R1);
+    bool clawCloseButton = controller.get_digital(DIGITAL_R2);
+}
+
+if (clawOpenButton) {
+    moveClaw(-50);
+} else if (clawCloseButton) {
+    moveClaw(50);
+} else {
+    moveClaw(0);
 }
