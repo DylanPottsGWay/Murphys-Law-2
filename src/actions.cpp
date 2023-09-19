@@ -41,7 +41,7 @@ void armOP(){
 
 //Claw
 void moveClaw(int speed){
-    moveClaw(speed);
+    claw.move(speed);
 }
 
 void clawOP(){
