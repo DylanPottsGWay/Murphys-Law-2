@@ -75,18 +75,10 @@ void autonomous() {}
  */
 void opcontrol() {
 	pros::Controller controller(pros::E_CONTROLLER_MASTER);
-pros::Motor leftFrontDrive (8, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
-pros::Motor rightFrontDrive (4, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
-pros::Motor leftBackDrive (10, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
-pros::Motor rightBackDrive (3, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
-pros::Motor arm (1, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
-pros::Motor claw (11, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
 	while (true) {
 		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
 		                 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
 		                 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
-		int leftSpeed = controller.get_analog(ANALOG_LEFT_Y);
-		int rightSpeed = controller.get_analog(ANALOG_RIGHT_Y);
 		void driveOP();
 		void armOP();
 		void clawOP();
