@@ -89,6 +89,7 @@ pros::Motor claw (11, MOTOR_GEAR_GREEN, false, MOTOR_ENCODER_DEGREES);
 		int right = controller.get_analog(ANALOG_RIGHT_Y);
 		void driveOP();
 		void armOP();
+		void clawOP();
 
 		pros::delay(10);
 

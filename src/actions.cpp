@@ -19,8 +19,9 @@ void moveChassis(int leftSpeed, int rightSpeed){
 }
 
 void driveOP(){
-    int left = controller.get_analog(ANALOG_LEFT_Y);
-	int right = controller.get_analog(ANALOG_RIGHT_Y);
+    int leftSpeed = controller.get_analog(ANALOG_LEFT_Y);
+	int rightSpeed = controller.get_analog(ANALOG_RIGHT_Y);
+    moveChassis(leftSpeed, rightSpeed);
 }
 
 //Arm Actions
@@ -45,14 +46,13 @@ void moveClaw(int speed){
 }
 
 void clawOP(){
-    bool clawOpenButton = controller.get_digital(DIGITAL_R1);
-    bool clawCloseButton = controller.get_digital(DIGITAL_R2);
-}
-
-if (clawOpenButton) {
+    bool clawOpenButton = controller.get_digital(DIGITAL_A);
+    bool clawCloseButton = controller.get_digital(DIGITAL_B);
+    if (clawOpenButton) {
     moveClaw(-50);
 } else if (clawCloseButton) {
     moveClaw(50);
 } else {
     moveClaw(0);
+}
 }
