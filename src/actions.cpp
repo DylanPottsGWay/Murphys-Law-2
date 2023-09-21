@@ -22,7 +22,7 @@ void moveChassis(int leftSpeed, int rightSpeed){
 
 
 void driveOP(){
-    int leftSpeed = controller.get_analog(ANALOG_LEFT_Y);
+   int leftSpeed = controller.get_analog(ANALOG_LEFT_Y);
 	int rightSpeed = controller.get_analog(ANALOG_RIGHT_Y);
     moveChassis(leftSpeed, rightSpeed);
 }
