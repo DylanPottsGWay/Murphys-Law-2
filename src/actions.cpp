@@ -3,27 +3,30 @@
 
 
 //Wheel Motor Actions
-void moveLeft(int speed){
- leftFrontDrive.move(speed);
- leftBackDrive.move(speed);
+int leftSpeed = controller.get_analog(ANALOG_LEFT_Y);
+int rightSpeed = controller.get_analog(ANALOG_RIGHT_Y);
+
+void moveLeft(int leftSpeed){
+ leftFrontDrive.move(leftSpeed);
+ leftBackDrive.move(leftSpeed);
 }
 
-void moveRight(int speed){
- rightFrontDrive.move(speed);
- rightBackDrive.move(speed);
+void moveRight(int rightSpeed){
+ rightFrontDrive.move(rightSpeed);
+ rightBackDrive.move(rightSpeed);
 }
 
 void moveChassis(int leftSpeed, int rightSpeed){
     if (leftSpeed != 0)
     moveLeft(leftSpeed);
-    } else if (rightSpeed != 0){
+    }else if (rightSpeed != 0){
         moveRight(rightSpeed);
     }
 
 
 void driveOP(){
-   int leftSpeed = controller.get_analog(ANALOG_LEFT_Y);
-	int rightSpeed = controller.get_analog(ANALOG_RIGHT_Y);
+    moveRight(rightSpeed);
+    moveLeft(leftSpeed);
     moveChassis(leftSpeed, rightSpeed);
 }
 
